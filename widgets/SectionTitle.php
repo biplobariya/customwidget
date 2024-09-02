@@ -307,8 +307,8 @@ class SectionTitle extends \Elementor\Widget_Base {
 					]
 				);
 		
-				$this->end_controls_section();
-				//#Style Tab End
+			$this->end_controls_section();
+			//#Style Tab End
 
 
 	}

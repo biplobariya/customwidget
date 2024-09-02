@@ -255,10 +255,312 @@ class AboutWidget extends \Elementor\Widget_Base {
 			]
 		);
 
-
-
         $this->end_controls_section();
         // about section end
+
+
+			//#Style Tab Start
+			$this->start_controls_section(
+				'about_style_section',
+				[
+					'label' => esc_html__( 'Style', 'picchi' ),
+					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+				]
+			);
+
+			// Title color control Heading
+			$this->add_control(
+				'sec_title',
+				[
+					'label' => esc_html__( 'Title', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'separator' => 'before',
+				]
+			);
+			// Title color control
+			$this->add_control(
+				'sec_title_color',
+				[
+					'label' => esc_html__( 'Title Color', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .about-text h4' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			// Title typography control
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'title_typography',
+					'selector' => '{{WRAPPER}} .about-text h4',
+				]
+			);
+	
+	
+			// Description color & typography control Heading
+			$this->add_control(
+				'sec_desc',
+				[
+					'label' => esc_html__( 'Description', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'separator' => 'before',
+				]
+			);
+			// Description color control
+			$this->add_control(
+				'sec_desc_color',
+				[
+					'label' => esc_html__( 'Description Color', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .about-desc p' => 'color: {{VALUE}}',
+					],
+				]
+			);
+
+			// Description typography control
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'sec_desc_typography',
+					'selector' => '{{WRAPPER}} .about-desc p',
+				]
+			);
+
+			// about button color control Heading
+			$this->add_control(
+				'abt_btn_color_title',
+				[
+					'label' => esc_html__( 'Button', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'separator' => 'before',
+				]
+			);
+			// about text color control
+			$this->add_control(
+				'about_btn_color',
+				[
+					'label' => esc_html__( 'About Button Color', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'default' => '#fff',
+					'selectors' => [
+						'{{WRAPPER}} .about-btn' => 'color: {{VALUE}}',
+					],
+				]
+			);
+			// about bg color control
+			$this->add_control(
+				'about_btn_bg_color',
+				[
+					'label' => esc_html__( 'Button BG Color', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'default' => '#ff6347',
+					'selectors' => [
+						'{{WRAPPER}} .about-btn' => 'background-color: {{VALUE}}',
+					],
+				]
+			);
+			// About btn typography control
+			$this->add_group_control(
+				\Elementor\Group_Control_Typography::get_type(),
+				[
+					'name' => 'about_btn_typography',
+					'selector' => '{{WRAPPER}} .about-btn',
+				]
+			);
+
+			//abou button dimension control
+			$this->add_control(
+				'about_btn_pad',
+				[
+					'label' => esc_html__( 'Padding', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .about-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+			//about button border radius control
+			$this->add_control(
+				'abt_btn_br',
+				[
+					'label' => esc_html__( 'Border radius', 'textdomain' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+					'selectors' => [
+						'{{WRAPPER}} .about-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
+			);
+
+			// about image background color control
+			$this->add_control(
+				'about_img_bg_color',
+				[
+					'label' => esc_html__( 'About image BG Color', 'picchi' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'default' => '#ff6347',
+					'selectors' => [
+						'{{WRAPPER}} .about-img:before ' => 'background-color: {{VALUE}}',
+					],
+				]
+			);
+	
+		$this->end_controls_section();
+		//#Style Tab End
+
+
+
+
+		//#About featue Style Tab Start
+		$this->start_controls_section(
+			'about_feature_style',
+			[
+				'label' => esc_html__( 'About Featere Style', 'picchi' ),
+				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		//Icon size control
+		$this->add_control(
+			'about_feature_icon',
+			[
+				'label' => esc_html__( 'Icon Size', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 5,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => 50,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .about-feature-icon' => 'max-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_fill_color',
+			[
+				'label' => esc_html__( 'Fill Color', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .about-feature-icon svg path' => 'fill: {{VALUE}}',
+				],
+			]
+		);
+		$this->add_control(
+			'icon_stroke_color',
+			[
+				'label' => esc_html__( 'Stroke Color', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .about-feature-icon svg path' => 'stroke: {{VALUE}}',
+				],
+			]
+		);
+
+
+		// About Feature title style
+		$this->add_control(
+			'abt_fet_title',
+			[
+				'label' => esc_html__( 'Feature Title', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+		// Title color control
+		$this->add_control(
+			'feature_title_color',
+			[
+				'label' => esc_html__( 'Feature Title Color', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single-about h4' => 'color: {{VALUE}}',
+				],
+			]
+		);
+		// Title typography control
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'feature_title_typography',
+				'selector' => '{{WRAPPER}} .single-about h4',
+			]
+		);
+
+
+		// Description color & typography control Heading
+		$this->add_control(
+			'about_fet_desc',
+			[
+				'label' => esc_html__( 'Feature Description', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+		// Feature Description color control
+		$this->add_control(
+			'about_desc_color',
+			[
+				'label' => esc_html__( 'Feature Description Color', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .single-about p' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		// Feature Description typography control
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'about_desc_typography',
+				'selector' => '{{WRAPPER}} .single-about p',
+			]
+		);
+
+		// about button color control Heading
+		$this->add_control(
+			'fet_btn_color_title',
+			[
+				'label' => esc_html__( 'Feature Button', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+		// about color control
+		$this->add_control(
+			'fet_btn_color',
+			[
+				'label' => esc_html__( 'Button Color', 'picchi' ),
+				'type' => \Elementor\Controls_Manager::COLOR,
+				'default' => '#777',
+				'selectors' => [
+					'{{WRAPPER}} .single-about a' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+	$this->end_controls_section();
+	//#Style Tab End
+
+
+
+
 
 
 	}
@@ -287,8 +589,10 @@ class AboutWidget extends \Elementor\Widget_Base {
 		<div class="col-6">
 			<div class="about-text">
 				<h4><?php echo $about_title; ?></h4>
-				<?php echo $about_desc; ?>
-				<a href="<?php echo $about_btn_url; ?>" class="box-btn"><?php echo $about_btn_text; ?></a>
+				<div class="about-desc">
+					<?php echo $about_desc; ?>
+				</div>
+				<a href="<?php echo $about_btn_url; ?>" class="about-btn"><?php echo $about_btn_text; ?></a>
 			</div>
 		</div>
 		<div class="col-6">
