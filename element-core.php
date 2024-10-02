@@ -230,7 +230,7 @@ if ( !class_exists( 'Furnixar_core' ) ) {
 	 public function register_widgets( $widgets_manager ) {
 		 // Site Elements
 		 $widgets = array(
-			'SectionTitle', 'AboutWidget', 'BannerWidget', 'FeaturesWidget'
+			'SectionTitle', 'AboutWidget', 'BannerWidget', 'FeaturesWidget', 'ServiceWidget', 'ProcessWidget'
 		 );
 
 		 foreach ( $widgets as $widget ) {
